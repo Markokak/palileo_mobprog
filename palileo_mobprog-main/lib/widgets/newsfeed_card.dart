@@ -57,7 +57,7 @@ class NewsFeedCard extends StatelessWidget {
       child: profileImageUrl == null || profileImageUrl.isEmpty
           ? _buildAvatarFallback()
           : ClipOval(
-              child: Image.network(
+              child: Image.asset(
                 profileImageUrl,
                 width: avatarSize,
                 height: avatarSize,
@@ -106,7 +106,7 @@ class NewsFeedCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(ScreenUtil().setSp(8)),
         child: postImageUrl == null || postImageUrl.isEmpty
             ? _buildImagePlaceholder()
-            : Image.network(
+            : Image.asset(
                 postImageUrl,
                 width: double.infinity,
                 fit: BoxFit.cover,

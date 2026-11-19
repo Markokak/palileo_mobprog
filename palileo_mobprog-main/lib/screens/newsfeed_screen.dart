@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../widgets/newsfeed_card.dart';
 
 class NewsFeedScreen extends StatelessWidget {
@@ -9,17 +10,20 @@ class NewsFeedScreen extends StatelessWidget {
     return ListView(
       children: const [
         NewsFeedCard(
-          userName: 'Cyrus Robles',
-          postContent: 'Kamusta',
-          numOfLikes: 100,
+          userName: 'Mark Aeron Palileo',
+          postContent: 'HI GUYSSSS',
+          numOfLikes: 347,
           date: 'October 11',
+          avatarUrl: 'assets/images/markprofile.jpg',
+          imageUrl: 'assets/images/markpost.png',
         ),
         NewsFeedCard(
-          userName: 'Roben Juanatas',
-          postContent: 'Kicking off the holiday season with ICpEP-NCR!',
-          numOfLikes: 200,
-          hasImage: true,
+          userName: 'Leni Robredo',
+          postContent: 'OTW para iligtas ang mundo',
+          numOfLikes: 450,
           date: 'December 2',
+          avatarUrl: 'assets/images/leni.jpg',
+          imageUrl: 'assets/images/otw.jpg',
         ),
       ],
     );
