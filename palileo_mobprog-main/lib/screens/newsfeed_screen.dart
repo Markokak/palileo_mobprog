@@ -15,7 +15,6 @@ class NewsFeedScreen extends StatelessWidget {
           numOfLikes: 347,
           date: 'October 11',
           avatarUrl: 'assets/images/markprofile.jpg',
-          imageUrl: 'assets/images/markpost.png',
         ),
         NewsFeedCard(
           userName: 'Leni Robredo',

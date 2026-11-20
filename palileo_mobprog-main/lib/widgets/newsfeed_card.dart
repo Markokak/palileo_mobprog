@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants.dart';
 import 'custom_text.dart';
+import 'post_action_button.dart';
 
 class NewsFeedCard extends StatelessWidget {
   const NewsFeedCard({
@@ -14,6 +15,8 @@ class NewsFeedCard extends StatelessWidget {
     this.hasImage = false,
     this.imageUrl,
     this.avatarUrl,
+    this.onLikePressed,
+    this.onCommentPressed,
   });
 
   final String userName;
@@ -23,6 +26,8 @@ class NewsFeedCard extends StatelessWidget {
   final bool hasImage;
   final String? imageUrl;
   final String? avatarUrl;
+  final VoidCallback? onLikePressed;
+  final VoidCallback? onCommentPressed;
 
   String get _userInitials {
     final names = userName
@@ -174,12 +179,17 @@ class NewsFeedCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _PostAction(
-                  icon: Icons.thumb_up_outlined,
+                PostActionButton(
+                  icon: Icons.thumb_up,
                   label: numOfLikes.toString(),
+                  onPressed: onLikePressed,
                 ),
-                _PostAction(icon: Icons.comment_outlined, label: 'Comment'),
-                _PostAction(icon: Icons.redo, label: 'Share'),
+                PostActionButton(
+                  icon: Icons.chat_bubble,
+                  label: 'Comment',
+                  onPressed: onCommentPressed,
+                ),
+                PostActionButton(icon: Icons.share, label: 'Share'),
               ],
             ),
             Row(
@@ -218,31 +228,6 @@ class NewsFeedCard extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _PostAction extends StatelessWidget {
-  const _PostAction({required this.icon, required this.label});
-
-  final IconData icon;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, size: ScreenUtil().setSp(18), color: FB_DARK_PRIMARY),
-        SizedBox(width: ScreenUtil().setWidth(4)),
-        Text(
-          label,
-          style: TextStyle(
-            color: FB_DARK_PRIMARY,
-            fontSize: ScreenUtil().setSp(12),
-          ),
-        ),
-      ],
     );
   }
 }
